@@ -1,0 +1,27 @@
+function createTable(){
+    x=input();
+    print("create table input is ", x, "\n");
+}
+
+function desire_send(arg){
+    print("desire send arg is ", arg, "\n");
+}
+
+function desire_understands(){
+	print("yes daddy pleaseee\n");
+}
+function createDesire() {
+	return [
+		// State
+		  { "__delegatees": createTable() }
+		// methods
+		, { "send": desire_send }
+		, { "delegate": (function (self, delegatee) {
+				self["__delegatees"].append(delegatee);
+			})}
+		, { "understands": desire_understands }
+	];
+}
+
+x=createDesire();
+x["__delegatees"].append();
